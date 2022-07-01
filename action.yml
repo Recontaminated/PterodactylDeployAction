@@ -1,0 +1,36 @@
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  localFile:
+    type: file
+    required: true
+    description: 'The file to upload'
+    default: 'hello.txt'
+  sftpUsername:
+    type: string
+    required: true
+    description: 'The username to connect to the SFTP server'
+    default: 'username'
+  sftpPort:
+    type: number
+    required: false
+    description: 'The port to connect to'
+    default: 22
+  sftpHost:
+    description: 'sftp host'
+    type: string
+    required: true
+  SSHKey:  # id of input
+    description: 'SSHKEY'
+    required: true
+    default: ''
+  panelURL:  # id of input
+    description: 'pterodactyl panel URL'
+    required: true
+    default: 'https://panel.example.com'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
